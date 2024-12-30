@@ -1,5 +1,5 @@
 # Shweta Todgire - Portfolio
-Welcome to the portfolio of Shweta Todgire, a Computer Science student. This portfolio showcases my skills and projects in software development and web design.
+Welcome to the portfolio of Shweta Todgire, a Computer Science student. This portfolio showcases my skills and projects.
 
 **Features**
 
