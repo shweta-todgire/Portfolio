@@ -16,6 +16,3 @@ Welcome to the portfolio of Shweta Todgire, a Computer Science student. This por
 - Responsive Design
 
 - FontAwesome for icons
-
-git clone https://github.com/shweta-todgire/Portfolio.git
-
