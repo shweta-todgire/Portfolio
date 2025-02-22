@@ -1,3 +1,3 @@
 # Portfolio
 
-Check the Portfolio: https://shweta-todgire.github.io/Portfolio/
+Check it out: https://shweta-todgire.github.io/Portfolio/
