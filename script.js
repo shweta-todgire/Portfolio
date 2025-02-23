@@ -1,11 +1,8 @@
-// Dark Mode Toggle Script
 const toggleButton = document.getElementById('toggle-theme');
 toggleButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
 
-
-// Fade in elements on scroll
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -18,7 +15,6 @@ const observer = new IntersectionObserver((entries, observer) => {
 const elements = document.querySelectorAll('.fade-element');
 elements.forEach(el => observer.observe(el));
 
-// Smooth Scroll
 document.querySelectorAll('.nav-links a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -27,11 +23,31 @@ document.querySelectorAll('.nav-links a').forEach(anchor => {
     });
 });
 
+const texts = [
+    "Developer.",
+    "Learner.",
+    "passionate Computer Science Student."
+];
+
+let index = 0;
+const dynamicText = document.getElementById("dynamic-text");
+
+function changeText() {
+    dynamicText.classList.add("fade-out");
+    setTimeout(() => {
+        dynamicText.textContent = texts[index];
+        dynamicText.classList.remove("fade-out");
+        dynamicText.classList.add("fade-in");
+        index = (index + 1) % texts.length;
+    }, 500); 
+}
+
+setInterval(changeText, 2000);
+
 window.addEventListener('load', () => {
     const header = document.querySelector('header');
     const hero = document.querySelector('.hero');
 
-    // Trigger the drop-down animation after the page has loaded
     header.classList.add('animate-header');
     hero.classList.add('animate-hero');
 });
