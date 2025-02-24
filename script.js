@@ -3,28 +3,21 @@ toggleButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
 
+// Remove the duplicate observer and combine everything into one
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.classList.add('visible');  
+            entry.target.classList.add('visible');
             observer.unobserve(entry.target);  
         }
     });
 }, { threshold: 0.5 }); 
+
+// Use this single observer for both fade-in-scale and fade-in classes
 const elements = document.querySelectorAll('.fade-element, .fade-in-scale');
 elements.forEach(el => observer.observe(el));
 
-const observer = new IntersectionObserver((entries, observer) => {
-    entries.forEach(entry => {
-        if (entry.isIntersecting) {
-            entry.target.classList.add('fade-in');
-            observer.unobserve(entry.target);
-        }
-    });
-}, { threshold: 0.5 });
-const elements = document.querySelectorAll('.fade-element');
-elements.forEach(el => observer.observe(el));
-
+// Smooth scrolling for navigation links
 document.querySelectorAll('.nav-links a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -33,6 +26,7 @@ document.querySelectorAll('.nav-links a').forEach(anchor => {
     });
 });
 
+// Dynamic text change for "developer", "learner", etc.
 const texts = [
     "Developer.",
     "Learner.",
