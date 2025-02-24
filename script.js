@@ -6,12 +6,22 @@ toggleButton.addEventListener('click', () => {
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
+            entry.target.classList.add('visible');  
+            observer.unobserve(entry.target);  
+        }
+    });
+}, { threshold: 0.5 }); 
+const elements = document.querySelectorAll('.fade-element, .fade-in-scale');
+elements.forEach(el => observer.observe(el));
+
+const observer = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
             entry.target.classList.add('fade-in');
             observer.unobserve(entry.target);
         }
     });
 }, { threshold: 0.5 });
-
 const elements = document.querySelectorAll('.fade-element');
 elements.forEach(el => observer.observe(el));
 
