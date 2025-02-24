@@ -1,8 +1,20 @@
-
+//Toggle Button
 const toggleButton = document.getElementById('toggle-theme');
+const themeIcon = document.getElementById('theme-icon');
+
 toggleButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
+
+    // Change the icon based on the theme
+    if (document.body.classList.contains('dark-mode')) {
+        themeIcon.classList.remove('fa-sun');
+        themeIcon.classList.add('fa-moon');
+    } else {
+        themeIcon.classList.remove('fa-moon');
+        themeIcon.classList.add('fa-sun');
+    }
 });
+
 
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
