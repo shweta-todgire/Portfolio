@@ -3,21 +3,21 @@ toggleButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
 
-// Remove the duplicate observer and combine everything into one
+// Combine both observers into one and ensure it works for all relevant sections
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            observer.unobserve(entry.target);  
+            observer.unobserve(entry.target);
         }
     });
-}, { threshold: 0.5 }); 
+}, { threshold: 0.5 }); // This triggers when 50% of the element is visible
 
-// Use this single observer for both fade-in-scale and fade-in classes
+// Observe all sections with the 'fade-element' or 'fade-in-scale' class
 const elements = document.querySelectorAll('.fade-element, .fade-in-scale');
 elements.forEach(el => observer.observe(el));
 
-// Smooth scrolling for navigation links
+// Smooth scrolling for navigation
 document.querySelectorAll('.nav-links a').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
         e.preventDefault();
@@ -26,11 +26,11 @@ document.querySelectorAll('.nav-links a').forEach(anchor => {
     });
 });
 
-// Dynamic text change for "developer", "learner", etc.
+// Dynamically changing text in the hero section
 const texts = [
     "Developer.",
     "Learner.",
-    "passionate Computer Science Student."
+    "Passionate Computer Science Student."
 ];
 
 let index = 0;
