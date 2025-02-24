@@ -48,11 +48,11 @@ header {
 }
 
 button#toggle-theme {
-    background-color: #7c5243;
+    background-color: #5d4037;
     color: white;
     padding: 10px 20px;
     border: none;
-    border-radius: 5px;
+    border-radius: 100%;
     cursor: pointer;
     font-family: 'Times New Roman', Times, serif;
     font-size: 20px;
@@ -154,7 +154,7 @@ a {
     border-radius: 10px;
     padding: 20px;
     text-align: center;
-    width: 150px;
+    width: 200px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
     position: relative;
@@ -176,11 +176,27 @@ a {
     color: #4e342e;
 }
 
-.skills-list {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    gap: 15px;
+.progress-bar {
+    width: 100%;
+    height: 5px;
+    background-color: #e0e0e0;
+    margin: 10px 0;
+    border-radius: 5px;
+    overflow: hidden;
+    position: relative;
+}
+
+.progress {
+    height: 100%;
+    width: 0%;
+    background-color: #5d4037;
+    position: absolute;
+    bottom: 0;
+}
+
+.level {
+    font-size: 1rem;
+    color: #333;
 }
 
 .projects,
@@ -326,6 +342,12 @@ footer p {
     background-color: #2e2e2e;
     color: #f1f1f1;
 }
+
+.dark-mode #toggle-theme {
+    background-color: #2e2e2e;
+    color: white;
+}
+
 
 .dark-mode header {
     background-color: #2e2e2e;
