@@ -1,9 +1,9 @@
+
 const toggleButton = document.getElementById('toggle-theme');
 toggleButton.addEventListener('click', () => {
     document.body.classList.toggle('dark-mode');
 });
 
-// Combine both observers into one and ensure it works for all relevant sections
 const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
@@ -11,9 +11,8 @@ const observer = new IntersectionObserver((entries, observer) => {
             observer.unobserve(entry.target);
         }
     });
-}, { threshold: 0.5 }); // This triggers when 50% of the element is visible
+}, { threshold: 0.5 }); // Triggers when 50% of the element is visible
 
-// Observe all sections with the 'fade-element' or 'fade-in-scale' class
 const elements = document.querySelectorAll('.fade-element, .fade-in-scale');
 elements.forEach(el => observer.observe(el));
 
@@ -26,7 +25,7 @@ document.querySelectorAll('.nav-links a').forEach(anchor => {
     });
 });
 
-// Dynamically changing text in the hero section
+//changing text in the hero section
 const texts = [
     "Developer.",
     "Learner.",
